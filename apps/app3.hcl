@@ -1,5 +1,5 @@
-solution_name    = "Testapp2"
-solution_number  = "APM00002"
+solution_name    = "Testapp3"
+solution_number  = "APM00003"
 
 resource "load_balancer" "lb" {
   protocol = "HTTPS"
@@ -20,11 +20,6 @@ resource "server" "ui" {
     database.db, 
     nas.cache 
   ]
-}
-
-
-resource "nas" "cache" {
-  type = "netapp"
 }
 
 resource "database" "db" {
