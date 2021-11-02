@@ -30,10 +30,13 @@ resource "nas" "cache" {
 resource "database" "db" {
   type     = "MSSQL"
   platform = "Windows"
+  dialect  = "T-SQL"
   arch     = "x86"
   virtual  = true
   ha       = true
   role     = "primary"
+
+  availability = "3nines"
 
   sla {
     availability = "5nines"

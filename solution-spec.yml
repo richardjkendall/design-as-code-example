@@ -22,6 +22,8 @@ database:
   virtual: bool
   ha: bool
   role: string
+  dialect: string
+  availability: string
   sla: block
 
 sla:

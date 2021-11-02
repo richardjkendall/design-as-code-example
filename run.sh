@@ -17,8 +17,27 @@ for FILE in apps/*; do
   arrFILENAME=(${arrFILE[1]//\./ })
   APP_NAME=${arrFILENAME[0]}
 
+  # run describe
   ./design-as-code -app=$FILE -patternlib=patterns/vmc.hcl -mode=describe -json=out/resources/$COMMIT-$APP_NAME-describe.json
+  # check exit code and halt if we had a problem
+  if [ $? -eq 0 ]; then
+    echo "success"
+  else
+    echo "there was an error"
+    exit 1
+  fi
+
+  # run match
+  # default is solve for priority
   ./design-as-code -app=$FILE -patternlib=patterns/vmc.hcl -mode=match -json=out/matches/$COMMIT-$APP_NAME-matches.json
+  # check exit code and halt if we had a problem
+  if [ $? -eq 0 ]; then
+    echo "success"
+  else
+    echo "there was an error"
+    exit 1
+  fi
+
 done
 
 # now upload to S3

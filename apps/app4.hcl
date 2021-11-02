@@ -1,5 +1,5 @@
-solution_name    = "Testapp3"
-solution_number  = "APM00003"
+solution_name    = "Testapp4"
+solution_number  = "APM00004"
 
 resource "server" "app_server" {
   os         = "Solaris"
@@ -19,9 +19,12 @@ resource "database" "db" {
   type     = "Oracle"
   platform = "Solaris"
   arch     = "sparc"
+  dialect  = "PL/SQL"
   virtual  = false
   ha       = true
   role     = "primary"
+
+  availability = "5nines"
 
   sla {
     availability = "5nines"

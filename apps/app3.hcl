@@ -25,9 +25,12 @@ resource "database" "db" {
   type     = "MSSQL"
   platform = "Windows"
   arch     = "x86"
+  dialect  = "ANSI"
   virtual  = true
   ha       = true
   role     = "primary"
+
+  availability = "5nines"
 
   sla {
     availability = "5nines"
