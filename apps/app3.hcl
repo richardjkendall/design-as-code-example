@@ -17,8 +17,7 @@ resource "server" "ui" {
   count      = 2
 
   depends_on = [ 
-    database.db, 
-    nas.cache 
+    database.db
   ]
 }
 
