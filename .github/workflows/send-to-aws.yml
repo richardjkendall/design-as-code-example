@@ -28,8 +28,8 @@ jobs:
           BUCKET: ${{ secrets.BUCKET }}
         run: |
           ./run.sh
-      
-       - name: Reload qlik app
+          
+      - name: Reload qlik app
         env:
           QLIK_TOKEN: ${{ secrets.QLIK_TOKEN }}
           QLIK_TENNANT: ${{ secrets.QLIK_TENNANT }}
