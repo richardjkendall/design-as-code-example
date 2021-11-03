@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# tool version
+TOOL_VERSION="v0.0.4-alpha"
+
 # get commit id
 COMMIT=`git log --pretty=format:'%h' -n 1`
 
@@ -9,7 +12,9 @@ rm -f out/resources/*
 rm -f out/matches/*
 
 # download the tool
-
+OS=`uname | tr '[:upper:]' '[:lower:]'`
+curl -L https://github.com/richardjkendall/design-as-code/releases/download/$TOOL_VERSION/design-as-code-$TOOL_VERSION-$OS-amd64.tar.gz --output design-as-code.tar.gz
+tar -xf design-as-code.tar.gz
 
 # for each app, run the tool
 for FILE in apps/*; do
