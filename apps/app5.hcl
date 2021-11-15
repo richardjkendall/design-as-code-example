@@ -10,7 +10,7 @@ resource "server" "app_server" {
   role       = "active"
   count      = 2
 
-  depends_on = [ 
+  depends_on = [
     database.db
   ]
 }

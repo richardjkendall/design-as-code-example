@@ -2,7 +2,7 @@ solution_name    = "Testapp1"
 solution_number  = "APM00001"
 
 resource "load_balancer" "lb" {
-  protocol = "HTTPS"
+  protocol   = "HTTPS"
   depends_on = [ server.ui ] 
 }
 
@@ -21,7 +21,6 @@ resource "server" "ui" {
     nas.cache 
   ]
 }
-
 
 resource "nas" "cache" {
   type = "netapp"
